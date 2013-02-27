@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <style type="text/css">
+            body { font: 11px verdana; }
+            .table-demo { width: 300px; margin: 0 0 30px; border: 1px solid #ccc; border-collapse: collapse; }
+            .table-demo td { border-bottom: 1px solid #ccc; padding: 5px }
+            .canvas-demo { width: 250px; margin: 0 0 30px }
+            input[type=checkbox] { margin: 2px; }
+        </style>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="../jquery.dragcheck.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.table-demo input[type=checkbox]').dragCheck();
+                $('.canvas-demo input[type=checkbox]').dragCheck();
+            })
+        </script>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+            var lipsum = [
+                'Liber consequat eorum ipsum elit sed. Lius claritatem velit videntur blandit littera',
+                'Lectorum quis vel erat exerci ipsum.',
+                'Nihil quinta nisl parum fiant congue.',
+                'Dolore duis liber litterarum parum cum. ',
+                'Quarta lorem eum saepius nonummy cum.',
+                'In eorum lectorum vero iusto mazim. Veniam augue non feugiat mirum odio. '
+            ];
+        </script>
+
+        <table class="table-demo">
+            Table:<br/>
+            <script type="text/javascript">
+                for(var i = 0; i < 10; i++) {
+                    document.write('<tr><td><input type="checkbox"></td><td>'+i+'</td><td>'+lipsum[parseInt(Math.random()*lipsum.length)]+'</td></tr>');
+                }
+            </script>
+            
+        </table>
+
+        <div class="canvas-demo">
+            Draw here:<br/>
+            <script type="text/javascript">
+                for(var i = 0; i < 150; i++) {
+                    document.write('<input type="checkbox">');
+                }
+            </script>
+        </div>
+    </body>
+</html>
