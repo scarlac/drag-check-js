@@ -1,6 +1,11 @@
-/* Click-and-drag checkbox state plugin (aka "painting").
- * Useful for lists where you user wants to select many intervals, but not entire table
- */
+/**
+* jQuery.DragCheck - Click-and-drag over checkboxes to change their state.
+* Copyright (c) 2013 Seph Soliman - scarlac(at)gmail(dot)com | http://seph.dk
+* @author Seph Soliman
+* @version 1.0
+*
+* https://github.com/scarlac/jquery-drag-check
+*/
 (function($) {
 	$.fn.dragCheck = function() {
 		// Remember the initial checkbox state
