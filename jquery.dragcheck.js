@@ -22,8 +22,7 @@
 
 		var dragEnd = function() {
 			if(window.dragCheck_state !== null) {
-				window.dragCheck_state = null;
-				window.dragCheck_origin = null;
+				window.dragCheck_items.push(dragCheck_origin);
 
 				if(settings.onDragEnd) {
 					settings.onDragEnd(window.dragCheck_items);
@@ -38,6 +37,8 @@
 					}
 				}
 
+				window.dragCheck_state = null;
+				window.dragCheck_origin = null;
 				window.dragCheck_items = [];
 			}
 		}
@@ -54,7 +55,7 @@
 				var item = $(this).add(window.dragCheck_origin).prop('checked', window.dragCheck_state);
 
 				if(settings.deferChangeTrigger) {
-					window.dragCheck_items.push(item);
+					window.dragCheck_items.push(this);
 				} else {
 					if(settings.onChange)
 						settings.onChange.call(item, e);
