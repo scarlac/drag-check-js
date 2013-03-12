@@ -2,7 +2,7 @@
 * jQuery.DragCheck - Click-and-drag over checkboxes to change their state.
 * Copyright (c) 2013 Seph Soliman - scarlac(at)gmail(dot)com | http://seph.dk
 * @author Seph Soliman
-* @version 1.0
+* @version 1.1
 *
 * https://github.com/scarlac/jquery-drag-check
 */
