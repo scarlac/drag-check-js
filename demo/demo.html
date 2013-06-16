@@ -14,6 +14,16 @@
             .table-demo td { border-bottom: 1px solid #ccc; padding: 5px }
             .canvas-demo { width: 250px; margin: 0 0 30px }
             input[type=checkbox] { margin: 2px; }
+            .arbitrary-demo td {
+                width: 20px;
+                height: 20px;
+                background: silver;
+                border: 1px solid white;
+                cursor: pointer;
+            }
+            .arbitrary-demo td[data-enabled=on] {
+                background: gray;
+            }
         </style>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -22,6 +32,17 @@
             $(document).ready(function() {
                 $('.table-demo input[type=checkbox]').dragCheck();
                 $('.canvas-demo input[type=checkbox]').dragCheck();
+                $('.arbitrary-demo td').dragCheck({
+                    stateToggle: function(el) {
+                        if (el.attr('data-enabled')) {
+                            return (el.attr('data-enabled') == 'on') ? 'off' : 'on'
+                        } else return 'on';
+                    },
+                    setState: function(collection, state) {
+                        collection.attr('data-enabled', state)
+                    },
+                    clickToggles: true
+                });
             })
         </script>
     </head>
@@ -61,6 +82,131 @@
                     document.write('<input type="checkbox">');
                 }
             </script>
+        </div>
+
+        <div class="arbitrary-demo">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>
