@@ -1,4 +1,4 @@
-Drag Check
+Drag Check JS
 =================
 
 Vanilla JS library & jQuery plugin for checking multiple checkboxes by click-dragging over them. Huge time-saver for system where you need to work with a lot of items at once. 
@@ -7,13 +7,9 @@ Takes the pain out of selecting multiple items. Simply click-and-drag over the c
 
 jQuery plugin use
 -----------------
-1a&period; Include jQuery and then the plugin in the `dist` folder like this:
+1&period; Include jQuery and then the plugin in the `dist` folder like this:
 
     <script src="dist/jquery.dragcheck.js"></script>
-
-1b&period; Or use the vanilla library from the `dist` folder like this:
-
-    <script src="dist/dragcheck.js"></script>
 
 2&period; Initialize DragCheck where you need it, on the checkboxes you want to be "drag-checkable" like this:
 
@@ -30,6 +26,17 @@ You can customize it further by specifying options to `.dragCheck(...)` as an ob
     });
 
 For simple checkboxes you could also just attach directly to the `change` event using `$(':checkbox').change(function() { ... }).dragCheck(...)`.
+
+Or vanilla js library use
+-----------------
+1&period; Include the library in the `dist` folder like this:
+
+    <script src="dist/dragcheck.js"></script>
+
+2&period; Initialize DragCheck where you need it, on the checkboxes you want to be "drag-checkable" like this:
+
+    new DragCheck({ checkboxes: Array.from(document.querySelectorAll('.my-table input[type=checkbox]')) });
+
 
 Options:
 ------------
