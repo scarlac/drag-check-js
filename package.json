@@ -1,6 +1,6 @@
 {
   "name": "drag-check-js",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Library for checking multiple checkboxes by click-and-dragging over them. Paint your selection!",
   "main": "dragcheck.js",
   "repository": {
