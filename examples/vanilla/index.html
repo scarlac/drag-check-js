@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Drag-check example</title>
+
+		<style type="text/css">
+			/*! normalize.css v1.1.0 | MIT License | git.io/normalize */
+			article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html,button,input,select,textarea{font-family:sans-serif}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}h2{font-size:1.5em;margin:.83em 0}h3{font-size:1.17em;margin:1em 0}h4{font-size:1em;margin:1.33em 0}h5{font-size:.83em;margin:1.67em 0}h6{font-size:.67em;margin:2.33em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}blockquote{margin:1em 40px}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}p,pre{margin:1em 0}code,kbd,pre,samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:none}q:before,q:after{content:'';content:none}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}dl,menu,ol,ul{margin:1em 0}dd{margin:0 0 0 40px}menu,ol,ul{padding:0 0 0 40px}nav ul,nav ol{list-style:none;list-style-image:none}img{border:0;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}figure{margin:0}form{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0;white-space:normal;}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+
+			body { font: 11px verdana; padding: 20px; }
+			.table-demo { width: 300px; margin: 0 0 30px; border: 1px solid #ccc; border-collapse: collapse; }
+			.table-demo td { border-bottom: 1px solid #ccc; padding: 5px }
+			.canvas-demo { width: 250px; margin: 0 0 30px }
+			input[type=checkbox] { margin: 0; transition: transform 0.1s ease-out; vertical-align: bottom }
+		</style>
+	</head>
+	<body>
+		<h1>Drag over checkboxes to check</h1>
+		<p>
+			Click-and-drag checkbox state plugin.<br/>
+			Useful for lists where you user wants to select many intervals, but not entire table.<br/>
+			Once you get used to this feature in a system with many lists, it's hard to live without.<br/>
+		</p>
+
+		<script type="text/javascript">
+			var lipsum = [
+				'Liber consequat eorum ipsum elit sed. Lius claritatem velit videntur blandit littera',
+				'Lectorum quis vel erat exerci ipsum.',
+				'Nihil quinta nisl parum fiant congue.',
+				'Dolore duis liber litterarum parum cum. ',
+				'Quarta lorem eum saepius nonummy cum.',
+				'In eorum lectorum vero iusto mazim. Veniam augue non feugiat mirum odio. '
+			];
+		</script>
+
+		<table class="table-demo">
+			Table:<span id="table_selection"></span><br/>
+			<script type="text/javascript">
+				for(var i = 0; i < 10; i++) {
+					document.write('<tr><td><input type="checkbox"></td><td>'+i+'</td><td>'+lipsum[parseInt(Math.random()*lipsum.length)]+'</td></tr>');
+				}
+			</script>
+			
+		</table>
+
+		<div class="canvas-demo">
+			Draw here:<br/>
+			<script type="text/javascript">
+				for(var i = 0; i < 20; i++) {
+					for(var j = 0; j < 20; j++) {
+						document.write('<input type="checkbox">');
+					}
+					document.write('<br>');
+				}
+			</script>
+		</div>
+		
+		<script src="../../dist/dragcheck.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
