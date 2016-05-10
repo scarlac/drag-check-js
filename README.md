@@ -7,9 +7,13 @@ Takes the pain out of selecting multiple items. Simply click-and-drag over the c
 
 jQuery plugin use
 -----------------
-1&period; Include jQuery and then the plugin like this:
+1a&period; Include jQuery and then the plugin in the `dist` folder like this:
 
-    <script src="jquery.dragcheck.js"></script>
+    <script src="dist/jquery.dragcheck.js"></script>
+
+1b&period; Or use the vanilla library from the `dist` folder like this:
+
+    <script src="dist/dragcheck.js"></script>
 
 2&period; Initialize DragCheck where you need it, on the checkboxes you want to be "drag-checkable" like this:
 
@@ -40,4 +44,5 @@ Options:
 
 
 See a demo here:
-http://www.seph.dk/jquery-dragcheck/demo.html
+https://www.seph.dk/dragcheck/examples/jquery/index.html
+https://www.seph.dk/dragcheck/examples/vanilla/index.html
