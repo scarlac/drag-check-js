@@ -45,4 +45,3 @@ Options:
 
 See a demo here:
 https://www.seph.dk/dragcheck/examples/jquery/index.html
-https://www.seph.dk/dragcheck/examples/vanilla/index.html
