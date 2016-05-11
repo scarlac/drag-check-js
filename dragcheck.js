@@ -5,25 +5,20 @@ function DragCheck(options) {
 	this.triggerChangeOnDragEnd = false;
 	this.checkState = null;
 	// Array passed is a shorthand for appling drag check to a list of checboxes
-	this.selectionList = Array.isArray(options) ? options : [];
+	this.selectionList = [];
+	this.checkboxes = Array.isArray(options) ? options : options.checkboxes;
 
-	// Constructor {{{
-	// Should "change" be triggered WHILE user is drag-checking, or wait until user has released the mouse?
-	if(this.options.checkboxes !== undefined)
-		this.selectionList = this.options.checkboxes;
-
-	this.attachEvents(this.selectionList);
+	this.attachEvents(this.checkboxes);
 
 	// Mouse release should disable the functionality
 	document.body.addEventListener('mouseup', this.dragEnd.bind(this));
-	// }}}
 }
 
 DragCheck.prototype.attachEvents = function(checkboxes) { 
 	checkboxes.forEach(function(item) {
-		item.addEventListener('mousedown', this.mouseDown.bind(this));
-		item.addEventListener('mouseup', this.dragEnd.bind(this));
-		item.addEventListener('mouseenter', this.mouseEnter.bind(this));
+		item.addEventListener('mousedown', this.mouseDown.bind(this, item));
+		item.addEventListener('mouseup', this.dragEnd.bind(this, item));
+		item.addEventListener('mouseenter', this.mouseEnter.bind(this, item));
 
 		// For custom (non-checkbox) elements there is no concept of switching state on click
 		// So provide an easy onclick-toggle feature by setting clickToToggle: true
@@ -37,15 +32,15 @@ DragCheck.prototype.attachEvents = function(checkboxes) {
 };
 
 
-DragCheck.prototype.mouseDown = function(event) {
-	this.checkState = !this.getChecked(event.target);
-	this.selectionList = [event.target];
+DragCheck.prototype.mouseDown = function(element) {
+	this.checkState = !this.getChecked(element);
+	this.selectionList = [element];
 };
 
 
-DragCheck.prototype.dragEnd = function(event) {
+DragCheck.prototype.dragEnd = function(element) {
 	if(this.options.deferChangeTrigger) {
-		this.selectionList.forEach(this.triggerChange);
+		this.selectionList.forEach(this.triggerChange.bind(this));
 	}
 
 	if(this.options.onDragEnd) {
@@ -58,6 +53,8 @@ DragCheck.prototype.dragEnd = function(event) {
 
 
 DragCheck.prototype.triggerChange = function(item) {
+	// TODO: Should we implement states comparison
+	//       and only trigger change event in case of a real change?
 	if(this.options.onChange !== undefined)
 		this.options.onChange(item);
 	else
@@ -86,14 +83,15 @@ DragCheck.prototype.getChecked = function(item) {
 }
 
 
-DragCheck.prototype.mouseEnter = function(event) {
+DragCheck.prototype.mouseEnter = function(element) {
 	if (this.checkState !== null) {
-		this.selectionList.push(event.target);
-		
-		this.selectionList.forEach(function(item) {
-			// Set checked state of checkbox (or custom element)
-			this.setChecked(item, this.checkState);
-		}, this);
+		// Dragging from 1st -> 2nd checkbox initiates drag-check
+		// In which case we should retroactively check the 1st box
+		if(this.selectionList.length === 1)
+			this.setChecked(this.selectionList[0], this.checkState);
+
+		this.selectionList.push(element);
+		this.setChecked(element, this.checkState);
 	}
 };
 
