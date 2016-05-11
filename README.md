@@ -1,9 +1,9 @@
 Drag Check JS
 =================
 
-Vanilla JS library & jQuery plugin for checking multiple checkboxes by click-dragging over them. Huge time-saver for system where you need to work with a lot of items at once. 
+Lightweight Vanilla JS library & jQuery plugin (~1.9 kB without gzip) for ticking multiple checkboxes by click-dragging over them. Huge time-saver for systems where you need to work with a lot of items at once.
 
-Takes the pain out of selecting multiple items. Simply click-and-drag over the checkboxes you want to check and it's done! Check out the examples for a demo.
+Takes the pain out of working with long tables. Simply click-and-drag over the checkboxes you want to check and it's done! Check out the examples for a demo. Once you've worked this way you'll never want to go back.
 
 jQuery plugin use
 -----------------
@@ -43,10 +43,10 @@ Options:
 
 * `clickToToggle` (default: `false`): When `true`, checked state will toggle on a simple click. Checkboxes do this by default so it's mostly useful for custom elements (ie. when used in conjunction with `setChecked` and `getChecked`).
 * `deferChangeTrigger` (default: `false`): When `true`, `onChange` events are postponed until user stops dragging. Useful if checking boxes have heavy or expensive updates attached to them and continuous onChange events could cause problems or slowdowns. See also: `onDragEnd`.
-* `setChecked`(default: `undefined`, type: `function(element, state)`): Specify a function to set the state of a checkbox or element. First argument is the element that needs its state set, second argument is the state it should be set to (`true` or `false`).
+* `setChecked`(default: `undefined`, type: `function(element, state)`): Specify a function to set the state of a checkbox or element. First argument is the element that needs its state set, second argument is the state it should be set to (`true` or `false`). Default behaviour is to set the `checked` property which works for checkboxes.
 * `getChecked`(default: `undefined`, type: `function(element)`): Specify a function that determines if an element or checkbox is checked. Default behaviour is to return `element.checked` which works for checkboxes.
 * `onDragEnd` (default: `undefined`, type: `function(array)`): Specify a function to be called once the user stops dragging. First argument is the list of changed elements.
-* `onChange` (default: `undefined`, type: `function(element)`): Override default change behaviour. Default behaviour is to set the `checked` property which works for checkboxes.
+* `onChange` (default: `undefined`, type: `function(element)`): Callback for 'change' event. Default behaviour is to dispatch a 'change' event.
 * `checkboxes` (default: [], type: `array`): Specify an array of checkboxes that should get drag-check behaviour. You may also specify non-checkbox elements but you'll want to write your own `setChecked` and `getChecked` functions and probably enable `clickToToggle` as well.
 
 
