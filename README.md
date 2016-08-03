@@ -64,3 +64,8 @@ Options:
 
 See a demo and more complex example here - view source:
 https://www.seph.dk/dragcheck/examples/jquery/index.html
+
+License
+=======
+Creative Commons, CC BY 4.0 (modification + commercial use is fine)
+https://creativecommons.org/licenses/by/4.0/
